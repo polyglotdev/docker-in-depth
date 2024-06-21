@@ -51,6 +51,14 @@ To map a port, you can use the `-p` flag when running a container.
 docker run -p 80:80 <image_name>
 ```
 
+You can also use:
+
+```bash
+docker run -P <image_name>
+```
+
+This will map all exposed ports in the container to random ports on the host machine.
+
 ### Docker Hierarchy and Lifecycle
 
 1. **Dockerfile**:
