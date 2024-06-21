@@ -296,3 +296,50 @@ The output from `docker volume inspect logs` give us:
   }
 ]
 ```
+
+The output of the file where the logs went was:
+
+```log
+Host: a40c22f66f99
+Loop Iteration: 0
+Host: a40c22f66f99
+Loop Iteration: 1
+Host: a40c22f66f99
+Loop Iteration: 2
+Host: a40c22f66f99
+Loop Iteration: 3
+Host: a40c22f66f99
+Loop Iteration: 4
+Host: a40c22f66f99
+Loop Iteration: 5
+Host: a40c22f66f99
+Loop Iteration: 6
+Host: a40c22f66f99
+Loop Iteration: 7
+Host: a40c22f66f99
+Loop Iteration: 8
+Host: a40c22f66f99
+Loop Iteration: 9
+Host: a40c22f66f99
+Loop Iteration: 10
+Host: a40c22f66f99
+Loop Iteration: 11
+Host: a40c22f66f99
+Loop Iteration: 12
+Host: a40c22f66f99
+Loop Iteration: 13
+Host: a40c22f66f99
+Loop Iteration: 14
+Host: a40c22f66f99
+Loop Iteration: 15
+Host: a40c22f66f99
+Loop Iteration: 16
+Host: a40c22f66f99
+Loop Iteration: 17
+Host: a40c22f66f99
+Loop Iteration: 18
+Host: a40c22f66f99
+Loop Iteration: 19
+```
+
+> 💡 Because I am using Orbstack as the Docker driver my path for volumes is `/Users/domhallan/OrbStack/docker/volumes/logs`
