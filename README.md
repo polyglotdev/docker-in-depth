@@ -272,3 +272,27 @@ a40c22f66f9917fc5dae9c2798a00c03de702530e034db1e7da4b88f9a10dfd5
 ```
 
 Here we are running a container with the `--mount` flag. We are specifying the type of mount as `volume`, the source directory as `logs`, and the destination directory as `/logs`. The image we are using is `scratch_volume:latest`.
+
+The `docker volume ls` command shows the following:
+
+```bash
+DRIVER    VOLUME NAME
+local     logs
+local     polyglotdev_node_modules
+```
+
+The output from `docker volume inspect logs` give us:
+
+```json
+[
+  {
+    "CreatedAt": "2024-06-21T15:00:37-04:00",
+    "Driver": "local",
+    "Labels": null,
+    "Mountpoint": "/var/lib/docker/volumes/logs/_data",
+    "Name": "logs",
+    "Options": null,
+    "Scope": "local"
+  }
+]
+```
