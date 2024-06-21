@@ -262,3 +262,13 @@ Loop Iteration: 19
 ```
 
 So it worked as expected 🎆!
+
+Let's look at a slightly different command with a different mount type:
+
+```bash
+docker-in-depth/docker/dockerfiles/writedata on  main [!] via 🐹 v1.22.4 on 🐳 v26.1.4 (orbstack) using ☁️  default/springboot-udemy-course
+➜ dkr -d --mount type=volume,src="logs",dst=/logs scratch_volume:latest
+a40c22f66f9917fc5dae9c2798a00c03de702530e034db1e7da4b88f9a10dfd5
+```
+
+Here we are running a container with the `--mount` flag. We are specifying the type of mount as `volume`, the source directory as `logs`, and the destination directory as `/logs`. The image we are using is `scratch_volume:latest`.
