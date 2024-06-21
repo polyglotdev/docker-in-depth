@@ -368,3 +368,18 @@ docker tag my_image:latest my_repository:1.0
 ```
 
 This command tags the `my_image` image with the `latest` tag as `my_repository:1.0`.
+
+## Course review
+
+- What is Docker?
+- Docker Architecture
+- Installation
+- Creating Containers
+- Images vs Containers
+- Images From The Dockerfile
+- Images From Containers
+- Port Mapping
+- Networking
+- Volumes
+- Tagging
+- Summary
