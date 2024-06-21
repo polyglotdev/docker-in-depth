@@ -115,3 +115,70 @@ This will map all exposed ports in the container to random ports on the host mac
 - **First**, you write a `Dockerfile` with the necessary instructions.
 - **Second**, you build a Docker image from the `Dockerfile`.
 - **Third**, you run a container from the Docker image.
+
+## Docker Networking Basics
+
+Docker networking is a powerful feature that allows you to create virtual networks for your containers. By default, Docker creates a bridge network for you when you install it. This bridge network allows containers to communicate with each other and with the host machine.
+
+> 💡 When using host networking whatever you open on the container is bound to the host.
+
+### Docker Network Types
+
+Docker provides several types of network drivers to support different networking use cases. Here's an overview of the main network types in Docker:
+
+1. **Bridge Network**:
+   - **Default bridge network**: Automatically created when Docker is installed. Containers on this network can communicate with each other using their IP addresses.
+   - **User-defined bridge networks**: More flexible than the default bridge network, allowing containers to communicate by name rather than IP address. This is useful for creating isolated environments where multiple containers can interact.
+
+2. **Host Network**:
+   - In this mode, the container shares the host's networking namespace. There is no network isolation between the container and the host. This can be useful for performance-sensitive applications that require low latency, but it reduces security isolation.
+
+3. **Overlay Network**:
+   - Designed for multi-host networking, it allows containers on different Docker hosts to communicate with each other. This is particularly useful in swarm mode or other orchestrated environments where services need to span multiple hosts.
+
+4. **None Network**:
+   - This disables networking for a container. The container has no access to the network interfaces of the host and is isolated from other containers and the external network. This is useful for running tasks that do not require network access.
+
+5. **MACVLAN Network**:
+   - Assigns a MAC address to each container, making them appear as physical devices on the network. Containers can then be directly connected to the physical network. This is useful for legacy applications that require direct layer 2 access or for situations where network performance is critical.
+
+6. **IPVLAN Network**:
+   - Similar to MACVLAN but allows for more flexibility in IP address management and offers better performance for certain use cases. It can operate in different modes (l2, l3) depending on the desired network topology.
+
+### Choosing the Right Network Type
+
+- **Bridge**: Best for single-host deployments where you need simple communication between containers.
+- **Host**: Use when performance and simplicity are more critical than security and isolation.
+- **Overlay**: Ideal for multi-host deployments using Docker Swarm or other orchestration tools.
+- **None**: Use when you need to completely isolate the container from any network.
+- **Macvlan/IPvlan**: Suitable for complex network setups requiring direct access to the physical network or when higher network performance is needed.
+
+### Example Commands
+
+- **Creating a User-defined Bridge Network**:
+  ```bash
+  docker network create my_bridge_network
+  ```
+
+- **Running a Container on the Host Network**:
+  ```bash
+  docker run --network host my_image
+  ```
+
+- **Creating an Overlay Network**:
+  ```bash
+  docker network create --driver overlay my_overlay_network
+  ```
+
+- **Running a Container with No Network**:
+  ```bash
+  docker run --network none my_image
+  ```
+
+- **Creating a Macvlan Network**:
+  ```bash
+  docker network create -d macvlan \
+    --subnet=192.168.1.0/24 \
+    --gateway=192.168.1.1 \
+    -o parent=eth0 macvlan_network
+  ```
