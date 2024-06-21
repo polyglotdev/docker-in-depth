@@ -40,3 +40,13 @@ docker commit --change='CMD ["apache2ctl", "-D", "FOREGROUND"]' <container_id> <
 ## Docker image vs Docker container
 
 A Docker image is a file, comprised of multiple layers, used to execute code in a Docker container. A Docker container is a runnable instance of a Docker image. You can create, start, stop, move, or delete a container using the Docker API or CLI. You can connect a container to one or more networks, attach storage to it, or even create a new image based on its current state.
+
+## Port Mapping
+
+Port mapping is a mechanism used by Docker to map a container's port to a port on the host machine. This allows external clients to access the containerized application by connecting to the host machine on the mapped port.
+
+To map a port, you can use the `-p` flag when running a container.
+
+```bash
+docker run -p 80:80 <image_name>
+```
