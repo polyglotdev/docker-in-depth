@@ -26,3 +26,17 @@ An image is a lightweight, stand-alone, executable package that includes everyth
 ## What is a `Dockerfile`?
 
 A `Dockerfile` is a text document that contains all the commands a user could call on the command line to assemble an image. Using `docker build` users can create an automated build that executes several command-line instructions in succession.
+
+## `docker commit`
+
+You can turn an container into an image by using the `docker commit` command. This is not the best practice, but it can be useful for debugging or testing purposes. The `docker commit` command takes a container ID and creates an image from it.
+
+You can also change instructions using the `--change` flag.
+
+```bash
+docker commit --change='CMD ["apache2ctl", "-D", "FOREGROUND"]' <container_id> <new_image_name>
+```
+
+## Docker image vs Docker container
+
+A Docker image is a file, comprised of multiple layers, used to execute code in a Docker container. A Docker container is a runnable instance of a Docker image. You can create, start, stop, move, or delete a container using the Docker API or CLI. You can connect a container to one or more networks, attach storage to it, or even create a new image based on its current state.
