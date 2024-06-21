@@ -50,3 +50,60 @@ To map a port, you can use the `-p` flag when running a container.
 ```bash
 docker run -p 80:80 <image_name>
 ```
+
+### Docker Hierarchy and Lifecycle
+
+1. **Dockerfile**:
+   - A `Dockerfile` is a text file that contains a series of instructions on how to build a Docker image.
+   - You write a `Dockerfile` to specify the base image, the software you want to install, and the configuration you need.
+
+2. **Docker Image**:
+   - An image is a read-only template that contains the application code, runtime, libraries, environment variables, and other dependencies needed to run an application.
+   - You create an image by running the `docker build` command, which reads the instructions from the `Dockerfile`.
+   - Images are stored in a registry (like Docker Hub) and can be pulled to different environments.
+
+3. **Docker Container**:
+   - A container is a runnable instance of an image. It is an isolated environment that runs the application defined by the image.
+   - You create and start a container by running the `docker run` command on an image.
+   - Containers are ephemeral by nature, meaning they can be started, stopped, moved, and deleted easily without affecting the underlying image.
+
+### Lifecycle and Workflow
+
+1. **Writing a Dockerfile**:
+   - Begin by writing a `Dockerfile` with the necessary instructions to set up your application environment.
+   - Example:
+     ```dockerfile
+     FROM golang:1.22.4-bookworm
+     WORKDIR /app
+     COPY . .
+     RUN go build -o main .
+     CMD ["./main"]
+     ```
+
+2. **Building an Image**:
+   - Use the `docker build` command to create an image from your `Dockerfile`.
+   - Example:
+     ```bash
+     docker build -t my-go-app .
+     ```
+   - This command reads the `Dockerfile` in the current directory (`.`) and builds an image tagged as `my-go-app`.
+
+3. **Running a Container**:
+   - Use the `docker run` command to create and start a container from the image.
+   - Example:
+     ```bash
+     docker run -p 8080:8080 my-go-app
+     ```
+   - This command creates a container from the `my-go-app` image, maps port 8080 of the container to port 8080 on the host, and starts the application.
+
+### Hierarchy Recap
+
+1. **Dockerfile**: The starting point, a script with instructions to build an image.
+2. **Docker Image**: Built from a Dockerfile, a read-only template for creating containers.
+3. **Docker Container**: A running instance of an image, an isolated environment for running applications.
+
+### Summary
+
+- **First**, you write a `Dockerfile` with the necessary instructions.
+- **Second**, you build a Docker image from the `Dockerfile`.
+- **Third**, you run a container from the Docker image.
