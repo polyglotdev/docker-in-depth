@@ -202,3 +202,7 @@ In general, you should use volumes where possible. Bind mounts are appropriate f
 - If you use Docker for development this way, your production Dockerfile would copy the production-ready artifacts directly into the image, rather than relying on a bind mount.
 - When the file or directory structure of the Docker host is guaranteed to be consistent with the bind mounts the containers require.
 - When you need to be able to back up, restore, or migrate data from one Docker host to another, volumes are a better choice. You can stop containers using the volume, then back up the volume's directory (such as `/var/lib/docker/volumes/<volume-name>`).
+
+### Good use cases for `tmpfs` mounts
+
+`tmpfs` mounts are best used for cases when you do not want the data to persist either on the host machine or within the container. This be for security reasons or to protect the performance of the container when your application needs to write a large volume of non-persistent state data.
