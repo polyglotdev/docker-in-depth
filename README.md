@@ -206,3 +206,59 @@ In general, you should use volumes where possible. Bind mounts are appropriate f
 ### Good use cases for `tmpfs` mounts
 
 `tmpfs` mounts are best used for cases when you do not want the data to persist either on the host machine or within the container. This be for security reasons or to protect the performance of the container when your application needs to write a large volume of non-persistent state data.
+
+## Breakdown
+
+```bash
+➜ dkr -d --mount type=bind,src="./var/demo/logs",dst=/logs scratch_volume:latest
+906aba69570bee3dc7f47151504dd903b27999e446e85f221dc307fa43480051
+```
+
+Here we are running a container with the `--mount` flag. We are specifying the type of mount as `bind`, the source directory as `./var/demo/logs`, and the destination directory as `/logs`. The image we are using is `scratch_volume:latest`.
+
+The output of that file where the logs went was:
+
+```log
+Host: 906aba69570b
+Loop Iteration: 0
+Host: 906aba69570b
+Loop Iteration: 1
+Host: 906aba69570b
+Loop Iteration: 2
+Host: 906aba69570b
+Loop Iteration: 3
+Host: 906aba69570b
+Loop Iteration: 4
+Host: 906aba69570b
+Loop Iteration: 5
+Host: 906aba69570b
+Loop Iteration: 6
+Host: 906aba69570b
+Loop Iteration: 7
+Host: 906aba69570b
+Loop Iteration: 8
+Host: 906aba69570b
+Loop Iteration: 9
+Host: 906aba69570b
+Loop Iteration: 10
+Host: 906aba69570b
+Loop Iteration: 11
+Host: 906aba69570b
+Loop Iteration: 12
+Host: 906aba69570b
+Loop Iteration: 13
+Host: 906aba69570b
+Loop Iteration: 14
+Host: 906aba69570b
+Loop Iteration: 15
+Host: 906aba69570b
+Loop Iteration: 16
+Host: 906aba69570b
+Loop Iteration: 17
+Host: 906aba69570b
+Loop Iteration: 18
+Host: 906aba69570b
+Loop Iteration: 19
+```
+
+So it worked as expected 🎆!
