@@ -343,3 +343,28 @@ Loop Iteration: 19
 ```
 
 > 💡 Because I am using Orbstack as the Docker driver my path for volumes is `/Users/domhallan/OrbStack/docker/volumes/logs`
+
+## Tagging
+
+Tagging is a way to mark a specific image with a specific version. This is useful for tracking changes to an image over time and ensuring that you can always refer back to a specific version of an image.
+
+### Tagging Syntax
+
+The syntax for tagging an image is as follows:
+
+```bash
+docker tag <image_id> <repository>:<tag>
+```
+
+- `<image_id>`: The ID of the image you want to tag.
+- `<repository>`: The name of the repository where the image will be stored.
+- `<tag>`: The tag you want to assign to the image.
+- If you omit the `<tag>`, Docker will assign the `latest` tag by default.
+
+### Example
+
+```bash
+docker tag my_image:latest my_repository:1.0
+```
+
+This command tags the `my_image` image with the `latest` tag as `my_repository:1.0`.

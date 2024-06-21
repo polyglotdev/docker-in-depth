@@ -4,10 +4,11 @@ FROM ubuntu:16.04
 WORKDIR /app
 
 # Update package list and install necessary packages using apt-get
-RUN apt-get update && apt-get install -y \
-  arp-scan \
-  iputils-ping \
-  iproute2
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  arp-scan=1.9.7-1 \
+  iputils-ping=3:20121221-5ubuntu2 \
+  iproute2=4.3.0-1ubuntu3 \
+  && rm -rf /var/lib/apt/lists/*
 
 # Copy the web application to the container
 COPY . .
