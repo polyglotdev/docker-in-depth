@@ -99,3 +99,26 @@ Here are some examples of Docker Compose files:
     - `- item2`
     - `- item3`
     - `- item4`
+
+## Compose Files
+
+## Root Elements
+
+- `version`: The version of the Compose file format being used.
+- `services`: services in your application
+- `networks`: networks your app uses
+- `volumes`: volumes your app uses
+- `secrets`: secrets your app uses
+- `configs`: configs your app uses
+- `extensions`: extensions your app uses
+
+## Compose File Service Configuration
+
+| Configuration             | docker run                  | Compose file key |
+| ------------------------- | --------------------------- | ---------------- |
+| **Specify image**         | `required arg`              | ` image`         |
+| **Specify volume**        | `-v`, `--volume`, `--mount` | `volumes`        |
+| **Publish ports on host** | `-p`                        | `ports`          |
+| **Environment variables** | `-e`,`--env`                | `environment`    |
+| **Logging**               | `--log-driver`, `--log-opt` | `logging`        |
+| **Security options**      | `--security-opt`            | `security_opt`   |
