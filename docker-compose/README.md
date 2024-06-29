@@ -56,3 +56,46 @@ You can learn more about the Docker Compose file in the [official documentation]
 Here are some examples of Docker Compose files:
 
 - [awesome-compose](https://dominiquehallan-links.com/3xsyzIZ)
+
+## How to create a Docker Compose file Using YAML
+
+## Agenda
+
+- YAML
+- Root elements
+  - Version
+  - Services
+  - Networks
+  - Volumes
+- Special Topics
+
+## YAML
+
+- YAML is a human-readable data serialization standard that can be used in conjunction with all programming languages and is often used to write configuration files.
+- uses `yaml` or `yml` file extension.
+- Extensively used in configuration files.
+
+## YAML Data Types
+
+- Integers
+  - 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+- Strings
+  - `This is a string`
+- Nulls
+  - `~`
+- Booleans
+  - `true` or `false`
+- Collections
+  - Mappings
+    - `key: value`
+  - Nested Mappings
+  - `key: value`
+    - `key: value`
+    - `key: value`
+  - Inline Syntax
+    - `key: { key: value, key: value }`
+  - Sequences
+    - `- item1`
+    - `- item2`
+    - `- item3`
+    - `- item4`

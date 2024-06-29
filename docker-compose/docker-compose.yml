@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/code
+    environment:
+      FLASK_ENV: development
+  db:
+    image: postgres:12
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: flask_db
+      POSTGRES_USER: flask_user
+      POSTGRES_PASSWORD: flask_password
