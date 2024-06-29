@@ -156,3 +156,41 @@ services:
 
 - `networks`: bridge, overlay, macvlan, none
 - One network default by default
+
+## Special Topics
+
+- use shell environment variables in your Compose file
+- can use `$variable` or `${variable}` syntax
+
+## Docker Compose CLI
+
+- Features
+- Installation
+- Usage
+
+## Docker Compose CLI Features
+
+- run multiple isolated environments on a single host
+- parallel execution model
+- Compose file change detection
+- Open Source
+
+## Compose Usage
+
+- `docker compose [options] [COMMAND] [ARGS...]`
+- `docker compose --help`
+- Looks for `docker-compose.yml` or `docker-compose.yaml` file by default in the current directory
+- Projects to represent isolated apps
+  - can use `-p` or `--project-name` to specify a project name
+- `docker compose up`: builds, (re)creates, starts, and attaches to containers for a service
+- `docker compose down`: stops and removes containers, networks, volumes, and images created by `up`
+- `docker compose ps`: lists containers
+- `docker compose logs`: views output from containers
+- `docker compose exec`: runs a command in a service
+- `docker compose build`: builds or rebuilds services
+- `docker compose pull`: pulls images for services
+- `docker compose start`: starts existing containers for a service
+- `docker compose stop`: stops existing containers without removing them
+- `docker compose restart`: restarts services
+- `docker compose pause`: pauses services
+- `docker compose unpause`: unpauses services
