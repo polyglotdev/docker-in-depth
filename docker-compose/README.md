@@ -122,3 +122,37 @@ Here are some examples of Docker Compose files:
 | **Environment variables** | `-e`,`--env`                | `environment`    |
 | **Logging**               | `--log-driver`, `--log-opt` | `logging`        |
 | **Security options**      | `--security-opt`            | `security_opt`   |
+
+## Compose file service Caveats
+
+- some config only apply to swarm mode
+- some are specified on the command line
+
+## Compose File Dependencies
+
+- `depends_on`: Express dependency between services
+- `links`: Express dependency between services
+
+## Compose File Service Examples
+
+```bash
+docker rn --name app-cache -d redis
+```
+
+```yaml
+version: "3.8"
+services:
+  app-cache:
+    image: redis
+```
+
+## Compose File Volumes
+
+- `volumes`: named volumes, anonymous volumes, bind mounts
+- Allows naming and sharing of volumes
+- Supports external volumes
+
+## Compose File Networks
+
+- `networks`: bridge, overlay, macvlan, none
+- One network default by default
